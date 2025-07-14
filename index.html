@@ -29,8 +29,8 @@
     header {
       padding: 1.5rem 2rem 0.5rem;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid #222;
     }
 
@@ -38,22 +38,32 @@
       font-size: 1.8rem;
       font-weight: 800;
       letter-spacing: 1px;
-      margin-bottom: 1rem;
     }
 
-    .search-bar {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 0.7rem 1rem;
-      border-radius: 10px;
-      border: none;
-      font-size: 1rem;
-      background-color: #111;
+    .burger {
+      font-size: 1.8rem;
+      cursor: pointer;
       color: var(--primary-text);
+    }
+
+    .burger-menu {
+      display: none;
+      position: absolute;
+      top: 80px;
+      left: 20px;
+      background-color: #111;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    .burger-menu a {
+      display: block;
+      padding: 0.5rem 0;
+      color: var(--primary-text);
+      text-decoration: none;
+      font-size: 1rem;
     }
 
     .hero {
@@ -114,20 +124,87 @@
       font-size: 0.9rem;
       color: #888;
     }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px var(--secondary-purple);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: none;
+      background-color: #222;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .modal-content button {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0.9rem;
+      font-size: 1rem;
+      font-weight: bold;
+      background: linear-gradient(to right, var(--secondary-blue), var(--secondary-purple));
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 1.5rem;
+      color: #ccc;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">FORGED</div>
-    <div class="search-bar">
-      <input type="text" placeholder="Search...">
+    <div class="burger" onclick="toggleBurgerMenu()">☰</div>
+    <div class="burger-menu" id="burgerMenu">
+      <a href="#">Help Center</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">About</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact Support</a>
     </div>
   </header>
 
   <section class="hero">
     <h1>Where Visionaries Connect & Build</h1>
     <p>FORGED is a next-gen space for entrepreneurs to connect, create groups, sell knowledge, host meetings, and grow together. Think WhatsApp + Discord + LinkedIn, reborn for the digital empire class.</p>
-    <button class="cta-button">Join the Movement</button>
+    <button class="cta-button" onclick="openModal()">Join the Movement</button>
   </section>
 
   <section class="features">
@@ -149,8 +226,38 @@
     </div>
   </section>
 
+  <div class="modal" id="authModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h2>Join FORGED</h2>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button>Continue</button>
+    </div>
+  </div>
+
   <footer>
     &copy; 2025 FORGED. All rights reserved.
+  </footer>
+
+  <script>
+    function openModal() {
+      document.getElementById('authModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('authModal').style.display = 'none';
+    }
+
+    function toggleBurgerMenu() {
+      const menu = document.getElementById('burgerMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
+
   </footer>
 </body>
 </html>
