@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORGED Inbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --accent-blue: #007BFF;
+      --accent-purple: #9B59B6;
+      --card: #111;
+      --border: #222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 300px;
+      background: var(--card);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 1rem;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .conversation {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    .conversation img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+
+    .conversation span {
+      font-size: 1rem;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+    }
+
+    .chat-header {
+      background: var(--card);
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 1rem;
+      max-width: 70%;
+      padding: 0.8rem 1.2rem;
+      border-radius: 14px;
+    }
+
+    .incoming {
+      background: #222;
+      align-self: flex-start;
+    }
+
+    .outgoing {
+      background: var(--accent-purple);
+      align-self: flex-end;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 1rem;
+      border-top: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      background: #111;
+      color: white;
+      border-radius: 20px;
+      margin-right: 0.8rem;
+    }
+
+    .chat-input button {
+      background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+      border: none;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Messages</h2>
+    <div class="conversation">
+      <img src="https://via.placeholder.com/45" alt="user">
+      <span>Jay – "Yo, let's collab!"</span>
+    </div>
+    <div class="conversation">
+      <img src="https://via.placeholder.com/45" alt="user">
+      <span>Leah – "New story dropped 📸"</span>
+    </div>
+    <div class="conversation">
+      <img src="https://via.placeholder.com/45" alt="user">
+      <span>Group: Ecom Kings 💼</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="chat-header">
+      Jay
+    </div>
+    <div class="chat-messages">
+      <div class="message incoming">
+        Yo bro I saw that course drop 🔥
+      </div>
+      <div class="message outgoing">
+        Appreciate you king. Launching more soon.
+      </div>
+      <div class="message incoming">
+        Send link here, I’ll repost it!
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Type a message...">
+      <button>Send</button>
+    </div>
+  </div>
+</body>
+</html>
