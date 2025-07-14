@@ -43,6 +43,34 @@
       font-size: 1.5rem;
     }
 
+    .story-bar {
+      display: flex;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+
+    .story {
+      flex: 0 0 auto;
+      width: 60px;
+      text-align: center;
+    }
+
+    .story img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-purple);
+      object-fit: cover;
+    }
+
+    .story span {
+      display: block;
+      font-size: 0.75rem;
+      margin-top: 0.3rem;
+      color: #ccc;
+    }
+
     .conversation {
       display: flex;
       align-items: center;
@@ -129,6 +157,26 @@
 <body>
   <div class="sidebar">
     <h2>Messages</h2>
+
+    <div class="story-bar">
+      <div class="story">
+        <img src="https://via.placeholder.com/60" alt="Jay">
+        <span>Jay</span>
+      </div>
+      <div class="story">
+        <img src="https://via.placeholder.com/60" alt="Leah">
+        <span>Leah</span>
+      </div>
+      <div class="story">
+        <img src="https://via.placeholder.com/60" alt="Neo">
+        <span>Neo</span>
+      </div>
+      <div class="story">
+        <img src="https://via.placeholder.com/60" alt="Forge HQ">
+        <span>Forge HQ</span>
+      </div>
+    </div>
+
     <div class="conversation">
       <img src="https://via.placeholder.com/45" alt="user">
       <span>Jay – "Yo, let's collab!"</span>
@@ -165,3 +213,4 @@
   </div>
 </body>
 </html>
+
