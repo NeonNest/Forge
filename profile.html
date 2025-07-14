@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORGED Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --accent-blue: #007BFF;
+      --accent-purple: #9B59B6;
+      --card: #111;
+      --border: #222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 2rem;
+    }
+
+    .profile-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .profile-text {
+      margin-left: 1.5rem;
+    }
+
+    .profile-text h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .profile-text p {
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    .edit-btn {
+      background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .profile-stats, .followers-preview, .analytics {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .profile-stats {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .stat p {
+      color: #aaa;
+    }
+
+    .about-section h3, .ventures-section h3, .followers-preview h3, .analytics h3 {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .about-section, .ventures-section {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .about-section p, .analytics p {
+      color: #ccc;
+      font-size: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: #222;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .followers-list {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .follower {
+      text-align: center;
+    }
+
+    .follower img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-purple);
+    }
+
+    .follower span {
+      display: block;
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="profile-info">
+        <div class="avatar"><i class="fas fa-user"></i></div>
+        <div class="profile-text">
+          <h2 contenteditable="true">Amani, The 23rd Son</h2>
+          <p contenteditable="true">Entrepreneur • South Africa • Dropshipping & Digital Realms</p>
+        </div>
+      </div>
+      <button class="edit-btn" onclick="alert('Editing mode enabled.')">Edit Profile</button>
+    </div>
+
+    <div class="profile-stats">
+      <div class="stat">
+        <h3>1.2K</h3>
+        <p>Followers</p>
+      </div>
+      <div class="stat">
+        <h3>38</h3>
+        <p>Groups</p>
+      </div>
+      <div class="stat">
+        <h3>14</h3>
+        <p>Courses</p>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h3>About</h3>
+      <p contenteditable="true">A creator of systems, a visionary behind the Forge. Building global impact platforms from the ground up. Passionate about empowering youth through tech, media, and entrepreneurship. Driven by discipline, clarity, and relentless execution.</p>
+    </div>
+
+    <div class="ventures-section">
+      <h3>Ventures & Interests</h3>
+      <div class="tags">
+        <span class="tag">Trading</span>
+        <span class="tag">Dropshipping</span>
+        <span class="tag">Digital Products</span>
+        <span class="tag">AI Content</span>
+        <span class="tag">E-commerce</span>
+      </div>
+    </div>
+
+    <div class="followers-preview">
+      <h3>Top Followers</h3>
+      <div class="followers-list">
+        <div class="follower">
+          <img src="https://via.placeholder.com/50" alt="Follower 1">
+          <span>Jay</span>
+        </div>
+        <div class="follower">
+          <img src="https://via.placeholder.com/50" alt="Follower 2">
+          <span>Leah</span>
+        </div>
+        <div class="follower">
+          <img src="https://via.placeholder.com/50" alt="Follower 3">
+          <span>Neo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="analytics">
+      <h3>Insights (Premium)</h3>
+      <p><strong>Recent Viewers:</strong> 9 this week</p>
+      <p><strong>Top Countries:</strong> South Africa, Nigeria, UK</p>
+      <p><strong>Viewer Age Groups:</strong> 18-24, 25-34</p>
+      <p><strong>Devices:</strong> 70% mobile, 30% desktop</p>
+    </div>
+  </div>
+</body>
+</html>
