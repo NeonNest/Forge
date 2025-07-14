@@ -27,10 +27,10 @@
     }
 
     header {
-      padding: 1.5rem 2rem;
+      padding: 1.5rem 2rem 0.5rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       border-bottom: 1px solid #222;
     }
 
@@ -38,21 +38,37 @@
       font-size: 1.8rem;
       font-weight: 800;
       letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .search-bar {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      background-color: #111;
+      color: var(--primary-text);
     }
 
     .hero {
-      padding: 5rem 2rem 3rem;
+      padding: 3rem 2rem 2rem;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 1rem;
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #ccc;
       max-width: 600px;
       margin: 0 auto 2rem;
@@ -74,7 +90,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      padding: 4rem 2rem;
+      padding: 3rem 2rem;
       max-width: 1200px;
       margin: auto;
     }
@@ -103,6 +119,9 @@
 <body>
   <header>
     <div class="logo">FORGED</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+    </div>
   </header>
 
   <section class="hero">
@@ -114,7 +133,7 @@
   <section class="features">
     <div class="feature">
       <h3>Private Chat</h3>
-      <p>Secure one-on-one or group messaging with built-in tools for collaboration.</p>
+      <p>Secure one-on-one or group messaging with built-in tools for collaboration. Stories appear in chat view for immersive social interaction.</p>
     </div>
     <div class="feature">
       <h3>Creator Groups</h3>
@@ -126,7 +145,7 @@
     </div>
     <div class="feature">
       <h3>Post Stories</h3>
-      <p>Stay visible. Post updates, wins, and behind-the-scenes stories that vanish in 24h.</p>
+      <p>Post updates and behind-the-scenes moments that show inside private messages, like modern status updates.</p>
     </div>
   </section>
 
@@ -135,3 +154,4 @@
   </footer>
 </body>
 </html>
+
