@@ -28,6 +28,7 @@
       color: var(--text);
       display: flex;
       height: 100vh;
+      overflow: hidden;
     }
 
     .sidebar {
@@ -54,6 +55,7 @@
       flex: 0 0 auto;
       width: 60px;
       text-align: center;
+      cursor: pointer;
     }
 
     .story img {
@@ -152,26 +154,110 @@
       border-radius: 20px;
       cursor: pointer;
     }
+
+    .story-modal, .upload-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .story-modal img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+
+    .story-modal.active, .upload-modal.active {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      color: white;
+    }
+
+    .story-modal span, .upload-modal span.close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    .upload-modal input, .upload-modal textarea, .upload-modal button {
+      margin: 0.5rem 0;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .upload-modal input, .upload-modal textarea {
+      background: #222;
+      color: white;
+      width: 300px;
+    }
+
+    .upload-modal button {
+      background: var(--accent-purple);
+      color: white;
+      cursor: pointer;
+    }
+
+    .floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: var(--accent-purple);
+      color: white;
+      font-size: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+    }
   </style>
 </head>
 <body>
+  <div class="story-modal" id="storyModal">
+    <span onclick="closeStory()">&times;</span>
+    <img id="storyImage" src="" alt="Story Content">
+  </div>
+
+  <div class="upload-modal" id="uploadModal">
+    <span class="close" onclick="toggleUpload()">&times;</span>
+    <h2>Upload Story</h2>
+    <input type="file" accept="image/*,video/mp4">
+    <textarea placeholder="Add a caption..."></textarea>
+    <button onclick="alert('Story uploaded!')">Post Story</button>
+  </div>
+
   <div class="sidebar">
     <h2>Messages</h2>
 
     <div class="story-bar">
-      <div class="story">
+      <div class="story" onclick="openStory('https://via.placeholder.com/600x800/000000/FFFFFF?text=Jay+Story')">
         <img src="https://via.placeholder.com/60" alt="Jay">
         <span>Jay</span>
       </div>
-      <div class="story">
+      <div class="story" onclick="openStory('https://via.placeholder.com/600x800/000000/FFFFFF?text=Leah+Story')">
         <img src="https://via.placeholder.com/60" alt="Leah">
         <span>Leah</span>
       </div>
-      <div class="story">
+      <div class="story" onclick="openStory('https://via.placeholder.com/600x800/000000/FFFFFF?text=Neo+Story')">
         <img src="https://via.placeholder.com/60" alt="Neo">
         <span>Neo</span>
       </div>
-      <div class="story">
+      <div class="story" onclick="openStory('https://via.placeholder.com/600x800/000000/FFFFFF?text=Forge+HQ+Story')">
         <img src="https://via.placeholder.com/60" alt="Forge HQ">
         <span>Forge HQ</span>
       </div>
@@ -200,10 +286,10 @@
         Yo bro I saw that course drop 🔥
       </div>
       <div class="message outgoing">
-        Appreciate you king. Launching more soon.
+        Appreciate you king. Launching more soon 💯
       </div>
       <div class="message incoming">
-        Send link here, I’ll repost it!
+        Send link here, I’ll repost it! 🔗
       </div>
     </div>
     <div class="chat-input">
@@ -211,6 +297,25 @@
       <button>Send</button>
     </div>
   </div>
+
+  <div class="floating-button" onclick="toggleUpload()">+</div>
+
+  <script>
+    function openStory(imageSrc) {
+      document.getElementById('storyImage').src = imageSrc;
+      document.getElementById('storyModal').classList.add('active');
+    }
+
+    function closeStory() {
+      document.getElementById('storyModal').classList.remove('active');
+    }
+
+    function toggleUpload() {
+      const modal = document.getElementById('uploadModal');
+      modal.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
+
 
