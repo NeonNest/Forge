@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORGED Groups</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --accent-blue: #007BFF;
+      --accent-purple: #9B59B6;
+      --card: #111;
+      --border: #222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .group-section {
+      margin-bottom: 2rem;
+    }
+
+    .group-section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent-blue);
+    }
+
+    .group-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .group-card .info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .group-card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-purple);
+    }
+
+    .group-card .actions button {
+      background: var(--accent-purple);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .group-card .actions button:hover {
+      background: var(--accent-blue);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      color: white;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 1rem;
+    }
+
+    .modal-content input,
+    .modal-content textarea,
+    .modal-content button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      background: #222;
+      color: white;
+    }
+
+    .modal-content button {
+      background: var(--accent-purple);
+      color: white;
+      cursor: pointer;
+    }
+
+    .group-thread {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .group-thread h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .group-thread p {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .chat-box {
+      background: #1a1a1a;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .chat-box .msg {
+      margin-bottom: 1rem;
+    }
+
+    .chat-box .msg strong {
+      color: var(--accent-blue);
+    }
+
+    .upload-section input[type="file"] {
+      background: #222;
+      color: #aaa;
+      padding: 0.4rem;
+      border-radius: 6px;
+    }
+
+    .locked {
+      background: #111;
+      padding: 1rem;
+      text-align: center;
+      border: 1px dashed var(--accent-purple);
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Groups</h1>
+
+  <div class="group-section">
+    <h2>Administered by You</h2>
+    <div class="group-card">
+      <div class="info">
+        <img src="https://via.placeholder.com/50" alt="Forge HQ">
+        <div>
+          <strong>Forge HQ</strong>
+          <p style="font-size: 0.9rem; color: #aaa;">Central hub for the FORGED movement</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button onclick="toggleModal('adminModal')">Manage</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="group-section">
+    <h2>Communities You've Joined</h2>
+    <div class="group-card">
+      <div class="info">
+        <img src="https://via.placeholder.com/50" alt="Ecom Kings">
+        <div>
+          <strong>Ecom Kings 💼</strong>
+          <p style="font-size: 0.9rem; color: #aaa;">Elite dropshipping minds unite here</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button onclick="toggleModal('ecomModal')">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Modal -->
+  <div class="modal" id="adminModal">
+    <div class="modal-content">
+      <h3>Manage Forge HQ</h3>
+      <input type="text" placeholder="Add Admin Username">
+      <button onclick="alert('Admin added')">Add Admin</button>
+      <button onclick="toggleModal('adminModal')">Close</button>
+    </div>
+  </div>
+
+  <!-- Group Modal -->
+  <div class="modal" id="ecomModal">
+    <div class="modal-content">
+      <h3>Ecom Kings 💼</h3>
+
+      <div class="group-thread">
+        <h4>Welcome Thread</h4>
+        <p>💬 “Welcome to the kingdom. Drop your intro + setup 🧠”</p>
+
+        <div class="chat-box" id="chatBox">
+          <div class="msg"><strong>UserA:</strong> I'm from SA, trading + print-on-demand</div>
+          <div class="msg"><strong>@Zenith:</strong> Welcome to the Forge. Need help optimizing setup?</div>
+        </div>
+
+        <textarea id="chatInput" placeholder="Reply here or tag @Zenith..."></textarea>
+        <div class="upload-section">
+          <input type="file">
+        </div>
+        <button onclick="sendMessage()">Post Reply</button>
+      </div>
+
+      <div class="locked">
+        🚫 This group includes premium threads.<br>
+        <strong>Upgrade to access exclusive posts + AI content tools.</strong>
+        <br><br>
+        <button onclick="toggleModal('upgradeModal')">Unlock Premium</button>
+      </div>
+
+      <button onclick="toggleModal('ecomModal')">Close</button>
+    </div>
+  </div>
+
+  <!-- Upgrade Modal -->
+  <div class="modal" id="upgradeModal">
+    <div class="modal-content">
+      <h3>Upgrade to Premium</h3>
+      <p>Gain full access to:</p>
+      <ul style="margin: 1rem 0; padding-left: 1rem;">
+        <li>🔥 AI insights from Zenith</li>
+        <li>📊 Profile analytics</li>
+        <li>🚀 Auto-boost groups & content</li>
+        <li>🎯 Direct targeting for your niche</li>
+      </ul>
+      <button onclick="alert('Subscribed!')">Subscribe for R99/month</button>
+      <button onclick="toggleModal('upgradeModal')">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Inbox Simulation -->
+  <div class="modal" id="inboxModal">
+    <div class="modal-content">
+      <h3>Inbox</h3>
+      <div class="msg"><strong>@Zenith:</strong> Based on your interest in dropshipping, check out this course: <a href="#">7-Figure Systems</a></div>
+      <div class="msg"><strong>@Zenith:</strong> You have 3 profile views this week. <a href="#">View Insights</a></div>
+      <div class="msg"><strong>@Zenith:</strong> Need help? Ask me anything or explore trending tools.</div>
+      <button onclick="toggleModal('inboxModal')">Close Inbox</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleModal(id) {
+      document.getElementById(id).classList.toggle('active');
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const box = document.getElementById('chatBox');
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const userMsg = `<div class='msg'><strong>You:</strong> ${msg}</div>`;
+      box.innerHTML += userMsg;
+
+      if (msg.includes('@Zenith')) {
+        const reply = `<div class='msg'><strong>@Zenith:</strong> Got it. Want me to draft a post for engagement?</div>`;
+        setTimeout(() => box.innerHTML += reply, 1000);
+        const dm = document.getElementById('inboxModal');
+        setTimeout(() => dm.classList.add('active'), 3000);
+      }
+
+      input.value = '';
+      box.scrollTop = box.scrollHeight;
+    }
+  </script>
+</body>
+</html>
